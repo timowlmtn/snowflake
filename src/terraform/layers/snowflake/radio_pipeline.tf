@@ -18,10 +18,10 @@ module "snowflake_datalake_playlists" {
   datalake_storage = "${var.prefix}-datalake-${var.environment}"
   stage_folder = "${var.stage_folder}/${var.data_source}/playlists"
   stage_name = "STAGE_PLAYLIST"
+  table_name = "IMPORT_PLAYLIST"
   snowflake_database = upper("${var.environment}_CATALOG")
   landing_zone_schema = var.landing_zone_schema
   storage_integration = upper("${var.prefix}_STORAGE_INTEGRATION_DATA_LAKE_${var.environment}")
-
 }
 
 module "snowflake_datalake_shows" {
@@ -29,8 +29,10 @@ module "snowflake_datalake_shows" {
   datalake_storage = "${var.prefix}-datalake-${var.environment}"
   stage_folder = "${var.stage_folder}/${var.data_source}/shows"
   stage_name = "STAGE_SHOW"
+  table_name = "IMPORT_SHOW"
   snowflake_database = upper("${var.environment}_CATALOG")
   landing_zone_schema = var.landing_zone_schema
   storage_integration = upper("${var.prefix}_STORAGE_INTEGRATION_DATA_LAKE_${var.environment}")
 
 }
+
