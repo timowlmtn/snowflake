@@ -35,3 +35,8 @@ variable "landing_zone_schema" {
   type = string
   default = "LANDING_ZONE"
 }
+
+variable "data_source" {
+  description = "The data source for the raw data"
+  type = string
+}

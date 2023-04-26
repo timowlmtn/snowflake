@@ -14,15 +14,15 @@ output-snowflake:
 
 destroy-snowflake:
 	terraform -chdir=layers/snowflake destroy -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
-		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -auto-approve
+		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -var="data_source=${SOURCE}"  -auto-approve
 
 apply-snowflake:
 	terraform -chdir=layers/snowflake apply -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
-		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -auto-approve
+		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -var="data_source=${SOURCE}" -auto-approve
 
 plan-snowflake:
 	terraform -chdir=layers/snowflake plan -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
-		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}"
+		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -var="data_source=${SOURCE}"
 
 init-snowflake:
 	terraform -chdir=layers/snowflake init
