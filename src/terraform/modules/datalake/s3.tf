@@ -6,4 +6,3 @@ resource "aws_s3_bucket" "datalake_s3_resource"{
     Prefix = var.prefix
   }
 }
-

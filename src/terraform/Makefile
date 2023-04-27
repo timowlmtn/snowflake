@@ -7,7 +7,7 @@ plan-datalake:
 		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}"
 
 init-datalake:
-	terraform -chdir=layers/datalake init
+	terraform -chdir=modules/datalake init
 
 output-snowflake:
 	terraform -chdir=layers/snowflake output
@@ -16,16 +16,23 @@ destroy-snowflake:
 	terraform -chdir=layers/snowflake destroy -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
 		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -var="data_source=${SOURCE}"  -auto-approve
 
-apply-snowflake:
-	terraform -chdir=layers/snowflake apply -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
-		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -var="data_source=${SOURCE}" -auto-approve
+apply-snowflake-db:
+	terraform -chdir=layers/snowflake-db apply -var-file="../../../../environments/dev.tfvars" -auto-approve
 
-plan-snowflake:
-	terraform -chdir=layers/snowflake plan -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
-		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}" -var="data_source=${SOURCE}"
+plan-snowflake-db:
+	terraform -chdir=layers/snowflake-db plan -var-file="../../../../environments/dev.tfvars"
 
-init-snowflake:
-	terraform -chdir=layers/snowflake init
+init-snowflake-db:
+	terraform -chdir=layers/snowflake-db init
+
+apply-snowflake-pipe:
+	terraform -chdir=layers/snowflake-pipe apply -var="aws_account_id=${AWS_ACCOUNT_ID}" -var-file="../../../../environments/dev.tfvars" -auto-approve
+
+plan-snowflake-pipe:
+	terraform -chdir=layers/snowflake-pipe plan -var-file="../../../../environments/dev.tfvars"
+
+init-snowflake-pipe:
+	terraform -chdir=layers/snowflake-pipe init -upgrade
 
 
 init-snowflake-module:

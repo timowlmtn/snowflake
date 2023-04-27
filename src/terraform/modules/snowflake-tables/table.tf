@@ -1,3 +1,4 @@
+
 resource "snowflake_table" "table" {
   database            = var.snowflake_database
   schema              = var.landing_zone_schema

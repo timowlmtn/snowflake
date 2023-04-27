@@ -4,6 +4,11 @@ variable "datalake_storage" {
   default     = null
 }
 
+variable "environment" {
+  description = "Environment"
+  type = string
+}
+
 variable "stage_name" {
   description = "The name for the stage"
   type        = string
