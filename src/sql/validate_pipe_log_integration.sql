@@ -7,6 +7,21 @@ show integrations ;
 
 describe integration OWLMTN_STORAGE_INTEGRATION_DATA_LAKE_DEV;
 
+/*
++-------------------------+-------------+-------------------------------------------------------------+----------------+
+|property                 |property_type|property_value                                               |property_default|
++-------------------------+-------------+-------------------------------------------------------------+----------------+
+|ENABLED                  |Boolean      |true                                                         |false           |
+|STORAGE_PROVIDER         |String       |S3                                                           |                |
+|STORAGE_ALLOWED_LOCATIONS|List         |s3://owlmtn-datalake-dev/stage/                              |[]              |
+|STORAGE_BLOCKED_LOCATIONS|List         |                                                             |[]              |
+|STORAGE_AWS_IAM_USER_ARN |String       |arn:aws:iam::098765432101:user/asdf-b-a9b83ss9               |                |
+|STORAGE_AWS_ROLE_ARN     |String       |arn:aws:iam::123456789012:role/owlmtn-snowflake-data-lake-dev|                |
+|STORAGE_AWS_EXTERNAL_ID  |String       |CBA12345_SFCRole=ASDFGBJJDFKS1234ASDFL499LLABS=              |                |
+|COMMENT                  |String       |A Storage integration for the datalake                       |                |
++-------------------------+-------------+-------------------------------------------------------------+----------------+
+
+ */
 
 show stages;
 
