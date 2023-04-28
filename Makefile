@@ -1,11 +1,17 @@
 default: apply-snowflake-pipe-kexp
 
-datalake: init-datalake apply-datalake
-snowflake-db: init-snowflake-db apply-snowflake-db
-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
-snowflake-pipe-kexp: init-snowflake-pipe-kexp apply-snowflake-pipe-kexp
+# To run from the build, use the following
+#
+#  make --directory=build/demo snowflake-pipe
+#
+build-clone:
+	mkdir -p build/${ENVIRONMENT}
+	git clone https://github.com/timowlmtn/snowflake.git build/${ENVIRONMENT}
 
-all: datalake snowflake-db snowflake-pipe
+build-datalake: init-datalake apply-datalake
+build-snowflake-db: init-snowflake-db apply-snowflake-db
+build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
+build-snowflake-pipe-kexp: init-snowflake-pipe-kexp apply-snowflake-pipe-kexp
 
 # -------------------------------------------------------------------------------------------------
 # The Data Lake is the base layer S3 bucket and we create as a separate layer that has no
