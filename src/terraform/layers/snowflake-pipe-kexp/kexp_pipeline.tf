@@ -9,7 +9,7 @@ module "snowflake_datalake_playlists" {
   snowflake_database = upper("${var.environment}_CATALOG")
   landing_zone_schema = var.landing_zone_schema
   environment = var.environment
-  storage_integration = snowflake_storage_integration.datalake_integration.name
+  storage_integration = upper("${var.prefix}_STORAGE_INTEGRATION_DATA_LAKE_${var.environment}")
 }
 
 module "snowflake_datalake_shows" {
@@ -21,7 +21,7 @@ module "snowflake_datalake_shows" {
   snowflake_database = upper("${var.environment}_CATALOG")
   landing_zone_schema = var.landing_zone_schema
   environment = var.environment
-  storage_integration = snowflake_storage_integration.datalake_integration.name
+  storage_integration = upper("${var.prefix}_STORAGE_INTEGRATION_DATA_LAKE_${var.environment}")
 
 }
 
