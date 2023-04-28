@@ -16,6 +16,8 @@ build-snowflake-db: init-snowflake-db apply-snowflake-db
 build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
 build-snowflake-pipe-kexp: init-snowflake-pipe-kexp apply-snowflake-pipe-kexp
 
+destroy-all: destroy-datalake destroy-snowflake-db
+
 # -------------------------------------------------------------------------------------------------
 # The Data Lake is the base layer S3 bucket and we create as a separate layer that has no
 # explicit dependencies.  We manage the dependency with a consistent naming convention.
