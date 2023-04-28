@@ -1,7 +1,7 @@
-output "aws_sns_topic_policy_name" {
-  description = "The IAM user for the Snowflake Storage Integration External ID"
-  value       = aws_sns_topic.snowflake_datalake.name
-}
+#output "aws_sns_topic_policy_name" {
+#  description = "The IAM user for the Snowflake Storage Integration External ID"
+#  value       = aws_sns_topic.snowflake_datalake.name
+#}
 
 
 output "storage_aws_iam_user_arn" {

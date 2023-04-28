@@ -1,4 +1,4 @@
-resource "aws_s3_bucket_notification" "s3_notif" {
+resource "aws_s3_bucket_notification" "s3_notify" {
   bucket = "${var.prefix}-datalake-${var.environment}"
 
   topic {

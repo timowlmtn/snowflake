@@ -1,3 +1,8 @@
+variable "region" {
+  description = "The AWS Region"
+  type = string
+}
+
 variable "datalake_storage" {
   description = "The Data Lake Storage "
   type        = string

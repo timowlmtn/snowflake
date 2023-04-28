@@ -1,4 +1,5 @@
 # Core TFVars file for DEV
+region              = "us-east-1"
 environment         = "dev"
 domain              = "radio"
 prefix              = "owlmtn"
