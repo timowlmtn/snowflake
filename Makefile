@@ -8,6 +8,9 @@ build-clone:
 	mkdir -p build/${ENVIRONMENT}
 	git clone https://github.com/timowlmtn/snowflake.git build/${ENVIRONMENT}
 
+build-pull:
+	git -C build/${ENVIRONMENT} pull https://github.com/timowlmtn/snowflake.git
+
 build-datalake: init-datalake apply-datalake
 build-snowflake-db: init-snowflake-db apply-snowflake-db
 build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
@@ -23,12 +26,18 @@ init-datalake:
 	terraform -chdir=src/terraform/layers/datalake init
 
 plan-datalake:
-	terraform -chdir=src/terraform/layers/datalake plan -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
-		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}"
+	terraform -chdir=src/terraform/layers/datalake plan -var="aws_account_id=${AWS_ACCOUNT_ID}" \
+ 	-var-file="../../../../environments/${ENVIRONMENT}.tfvars"
 
 apply-datalake:
-	terraform -chdir=src/terraform/layers/datalake apply   -var="prefix=${PREFIX}" -var="environment=${ENVIRONMENT}" \
-		-var="domain=${DOMAIN}" -var="aws_account_id=${AWS_ACCOUNT_ID}"  -auto-approve
+	terraform -chdir=src/terraform/layers/datalake apply  -var="aws_account_id=${AWS_ACCOUNT_ID}" \
+ 	-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
+
+
+destroy-snowflake-db:
+	terraform -chdir=src/terraform/layers/snowflake-db destroy -var="aws_account_id=${AWS_ACCOUNT_ID}" \
+ 	-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
+
 
 # -------------------------------------------------------------------------------------------------
 # The Snowflake database is the base level database and is again created as a layer to avoid
@@ -41,11 +50,15 @@ apply-datalake:
 apply-snowflake-db:
 	terraform -chdir=src/terraform/layers/snowflake-db apply -var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
+destroy-snowflake-db:
+	terraform -chdir=src/terraform/layers/snowflake-db destroy -var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
+
 plan-snowflake-db:
 	terraform -chdir=src/terraform/layers/snowflake-db plan -var-file="../../../../environments/${ENVIRONMENT}.tfvars"
 
 init-snowflake-db:
 	terraform -chdir=src/terraform/layers/snowflake-db init
+
 
 
 # -------------------------------------------------------------------------------------------------
@@ -55,6 +68,10 @@ init-snowflake-db:
 #
 apply-snowflake-pipe:
 	terraform -chdir=src/terraform/layers/snowflake-pipe apply -var="aws_account_id=${AWS_ACCOUNT_ID}" \
+		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
+
+destory-snowflake-pipe:
+	terraform -chdir=src/terraform/layers/snowflake-pipe destroy -var="aws_account_id=${AWS_ACCOUNT_ID}" \
 		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
 plan-snowflake-pipe:
@@ -76,6 +93,10 @@ plan-snowflake-pipe-kexp:
 
 init-snowflake-pipe-kexp:
 	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp init -upgrade
+
+destroy-snowflake-pipe-kexp:
+	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp destroy -var="aws_account_id=${AWS_ACCOUNT_ID}" \
+		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
 
 # -------------------------------------------------------------------------------------------------
