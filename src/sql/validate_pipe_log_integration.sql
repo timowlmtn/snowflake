@@ -36,7 +36,7 @@ list @LANDING_ZONE.STAGE_LOG;
 
 
 
-select parse_json(system$pipe_status('PIPE_IMPORT_LOG'));
+
 
 select min(JSON_OBJECT), max(JSON_OBJECT), count(*)
 from LANDING_ZONE.IMPORT_LOG;
