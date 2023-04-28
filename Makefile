@@ -63,21 +63,6 @@ plan-snowflake-pipe-kexp:
 init-snowflake-pipe-kexp:
 	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp init -upgrade
 
-# -------------------------------------------------------------------------------------------------
-# This is a work in progress to integrate our datalake with Databricks for utilizing Delta tables
-# from databricks as external tables in Snowflake.
-#
-apply-databricks:
-	terraform -chdir=src/terraform/layers/databricks apply -auto-approve \
-		-var-file="../../environments/${ENVIRONMENT}.tfvars"
-
-plan-databricks:
-	terraform -chdir=src/terraform/layers/databricks plan \
-		-var-file="../../environments/${ENVIRONMENT}.tfvars"
-
-# Initialize a working directory containing the terraform config files
-init-databricks:
-	terraform -chdir=src/terraform/layers/databricks init
 
 # -------------------------------------------------------------------------------------------------
 # This is the brew method of installing Terraform for this example
