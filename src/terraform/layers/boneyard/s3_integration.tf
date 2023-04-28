@@ -1,5 +1,5 @@
 module "datalake" {
-  source = "../../modules/datalake"
+  source = "../datalake"
 
   aws_account_id = var.aws_account_id
   domain         = var.domain
