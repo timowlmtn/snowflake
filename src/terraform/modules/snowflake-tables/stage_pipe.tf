@@ -16,7 +16,7 @@ resource "snowflake_pipe" "pipe" {
 
   copy_statement = <<EOT
 copy into ${var.snowflake_database}.${var.landing_zone_schema}.${var.table_name}
-    from @${var.snowflake_database}.${var.landing_zone_schema}.${var.stage_name}
+    from @${var.snowflake_database}.${var.landing_zone_schema}.${snowflake_stage.datalake.name}
     file_format = (type = JSON)
 EOT
 

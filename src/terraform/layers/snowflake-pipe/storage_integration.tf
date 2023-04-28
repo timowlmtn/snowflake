@@ -6,7 +6,7 @@ resource "snowflake_storage_integration" "datalake_integration" {
   enabled = true
 
   storage_provider         = "S3"
-  storage_aws_role_arn     = "arn:aws:iam::${var.aws_account_id}:role/${var.prefix}-snowflake-data-lake--${var.domain}-${var.environment}"
+  storage_aws_role_arn     = "arn:aws:iam::${var.aws_account_id}:role/${var.prefix}-snowflake-data-lake-${var.environment}"
 
   storage_allowed_locations = ["s3://${var.prefix}-datalake-${var.environment}/${var.stage_folder}/"]
 

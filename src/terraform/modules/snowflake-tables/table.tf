@@ -9,8 +9,8 @@ resource "snowflake_table" "table" {
   change_tracking     = false
 
   column {
-    name     = "json_object"
-    type     = "variant"
+    name     = "JSON_OBJECT"
+    type     = "VARIANT"
     nullable = true
 
   }

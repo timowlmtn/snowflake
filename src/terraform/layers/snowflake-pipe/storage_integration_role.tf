@@ -17,7 +17,7 @@ resource "aws_iam_role" "snowflake" {
     ]
   })
 
-  name = "${var.prefix}-snowflake-data-lake-${var.environment}-${var.domain}"
+  name = "${var.prefix}-snowflake-data-lake-${var.environment}"
 
 }
 
