@@ -1,3 +1,11 @@
+default: apply-snowflake-pipe-kexp
+
+datalake: init-datalake apply-datalake
+snowflake-db: init-snowflake-db apply-snowflake-db
+snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
+snowflake-pipe-kexp: init-snowflake-pipe-kexp apply-snowflake-pipe-kexp
+
+all: datalake snowflake-db snowflake-pipe
 
 # -------------------------------------------------------------------------------------------------
 # The Data Lake is the base layer S3 bucket and we create as a separate layer that has no
@@ -25,10 +33,10 @@ apply-datalake:
 #	upper("${var.environment}_CATALOG")
 #
 apply-snowflake-db:
-	terraform -chdir=src/terraform/layers/snowflake-db apply -var-file="../../../../environments/dev.tfvars" -auto-approve
+	terraform -chdir=src/terraform/layers/snowflake-db apply -var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
 plan-snowflake-db:
-	terraform -chdir=src/terraform/layers/snowflake-db plan -var-file="../../../../environments/dev.tfvars"
+	terraform -chdir=src/terraform/layers/snowflake-db plan -var-file="../../../../environments/${ENVIRONMENT}.tfvars"
 
 init-snowflake-db:
 	terraform -chdir=src/terraform/layers/snowflake-db init
