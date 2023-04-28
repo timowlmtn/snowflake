@@ -8,8 +8,8 @@ build-clone:
 	mkdir -p build/${ENVIRONMENT}
 	git clone https://github.com/timowlmtn/snowflake.git build/${ENVIRONMENT}
 
-build-pull:
-	git -C build/${ENVIRONMENT} pull https://github.com/timowlmtn/snowflake.git
+build-pull-demo:
+	git -C build/demo pull https://github.com/timowlmtn/snowflake.git
 
 build-datalake: init-datalake apply-datalake
 build-snowflake-db: init-snowflake-db apply-snowflake-db
@@ -31,6 +31,10 @@ plan-datalake:
 
 apply-datalake:
 	terraform -chdir=src/terraform/layers/datalake apply  -var="aws_account_id=${AWS_ACCOUNT_ID}" \
+ 	-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
+
+destroy-datalake:
+	terraform -chdir=src/terraform/layers/datalake destroy  -var="aws_account_id=${AWS_ACCOUNT_ID}" \
  	-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
 
