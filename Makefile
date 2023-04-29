@@ -35,7 +35,10 @@ apply-datalake:
 	terraform -chdir=src/terraform/layers/datalake apply  -var="aws_account_id=${AWS_ACCOUNT_ID}" \
  	-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
-destroy-datalake:
+clean-s3-bucket:
+	aws rm s3://${PREFIX}-datalake-${ENVIRONMENT} --recursive --dryrun
+
+destroy-datalake: clean-s3-bucket
 	terraform -chdir=src/terraform/layers/datalake destroy  -var="aws_account_id=${AWS_ACCOUNT_ID}" \
  	-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
