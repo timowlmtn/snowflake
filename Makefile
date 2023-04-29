@@ -79,7 +79,7 @@ apply-snowflake-pipe:
 	terraform -chdir=src/terraform/layers/snowflake-pipe apply -var="aws_account_id=${AWS_ACCOUNT_ID}" \
 		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
-destory-snowflake-pipe:
+destroy-snowflake-pipe:
 	terraform -chdir=src/terraform/layers/snowflake-pipe destroy -var="aws_account_id=${AWS_ACCOUNT_ID}" \
 		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 

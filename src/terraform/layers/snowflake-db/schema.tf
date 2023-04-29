@@ -1,5 +1,5 @@
 resource "snowflake_schema" "landing_zone" {
-  database = upper("${var.environment}_CATALOG")
+  database = snowflake_database.catalog.name
   name     = "LANDING_ZONE"
   comment  = "The Landing zone schema for new data"
 

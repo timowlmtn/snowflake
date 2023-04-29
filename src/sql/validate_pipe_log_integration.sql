@@ -34,7 +34,7 @@ describe stage LANDING_ZONE.STAGE_LOG;
 
 list @LANDING_ZONE.STAGE_LOG;
 
-
+select parse_json(system$pipe_status('PIPE_IMPORT_LOG'));
 
 
 
