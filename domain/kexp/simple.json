@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "json_object": {
+      "COLUMN_NAME": "JSON_OBJECT",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "VARIANT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 1
+    }
+  }
+}

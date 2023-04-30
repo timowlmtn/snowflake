@@ -13,3 +13,23 @@ output "snowflake_show_stage" {
   description = "The stage for the snowflake output"
   value       = module.snowflake_datalake_playlists.datalake_stage
 }
+
+#output "domain_show" {
+#  description = "The defined local model"
+#  value = local.show_definition
+#}
+
+output "column_names" {
+    value = [for key, value in local.playlist_definition["properties"] : format("%s", value["COLUMN_NAME"])]
+}
+
+output "column_select" {
+    value = [for key, value in local.playlist_definition["properties"] :
+      format("$1:%s", join("::", [key, value["DATA_TYPE"]]))]
+}
+
+
+output "domain_playlist" {
+  description = "The defined local model"
+  value = local.playlist_definition["properties"]
+}
