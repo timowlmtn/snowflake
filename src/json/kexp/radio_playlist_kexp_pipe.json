@@ -1,0 +1,152 @@
+{
+  "properties": {
+    "01-load_id": {
+      "COLUMN_NAME": "LOAD_ID",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "NUMBER",
+      "IS_IDENTITY": "YES",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 1
+    },
+    "02-filename": {
+      "COLUMN_NAME": "FILENAME",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 2
+    },
+    "03-file_row_number": {
+      "COLUMN_NAME": "FILE_ROW_NUMBER",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "NUMBER",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 3
+    },
+    "04-playlist_id": {
+      "COLUMN_NAME": "PLAYLIST_ID",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "NUMBER",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 4
+    },
+    "05-play_type": {
+      "COLUMN_NAME": "PLAY_TYPE",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 5
+    },
+    "06-airdate": {
+      "COLUMN_NAME": "AIRDATE",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TIMESTAMP_LTZ",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 6
+    },
+    "07-album": {
+      "COLUMN_NAME": "ALBUM",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 7
+    },
+    "08-artist": {
+      "COLUMN_NAME": "ARTIST",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 8
+    },
+    "09-song": {
+      "COLUMN_NAME": "SONG",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 9
+    },
+    "10-show_id": {
+      "COLUMN_NAME": "SHOW_ID",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "NUMBER",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 10
+    },
+    "11-dw_create_date": {
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "COLUMN_NAME": "DW_CREATE_DATE",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TIMESTAMP_TZ",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 11
+    },
+    "12-dw_create_user": {
+      "COLUMN_DEFAULT": "CURRENT_USER()",
+      "COLUMN_NAME": "DW_CREATE_USER",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 12
+    },
+    "13-dw_update_date": {
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "COLUMN_NAME": "DW_UPDATE_DATE",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TIMESTAMP_TZ",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 13
+    },
+    "14-dw_update_user": {
+      "COLUMN_DEFAULT": "CURRENT_USER()",
+      "COLUMN_NAME": "DW_UPDATE_USER",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": 14
+    },
+    "15-comment": {
+      "COLUMN_NAME": "COMMENT",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 15
+    },
+    "16-image_uri": {
+      "COLUMN_NAME": "IMAGE_URI",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 16
+    },
+    "17-labels": {
+      "COLUMN_NAME": "LABELS",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "VARIANT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 17
+    },
+    "18-release_date": {
+      "COLUMN_NAME": "RELEASE_DATE",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": "NO",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": 18
+    }
+  }
+}
