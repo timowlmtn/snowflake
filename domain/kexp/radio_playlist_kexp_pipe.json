@@ -1,152 +1,152 @@
 {
   "properties": {
-    "01-load_id": {
+    "load_id": {
       "COLUMN_NAME": "LOAD_ID",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "YES",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 1
+      "IS_IDENTITY": true,
+      "IS_NULLABLE": false
     },
-    "02-filename": {
+    "filename": {
       "COLUMN_NAME": "FILENAME",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 2
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "03-file_row_number": {
+    "file_row_number": {
       "COLUMN_NAME": "FILE_ROW_NUMBER",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 3
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "04-playlist_id": {
+    "playlist_id": {
       "COLUMN_NAME": "PLAYLIST_ID",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 4
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "05-play_type": {
+    "play_type": {
       "COLUMN_NAME": "PLAY_TYPE",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 5
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "06-airdate": {
+    "airdate": {
       "COLUMN_NAME": "AIRDATE",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TIMESTAMP_LTZ",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 6
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "07-album": {
+    "album": {
       "COLUMN_NAME": "ALBUM",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 7
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
-    "08-artist": {
+    "artist": {
       "COLUMN_NAME": "ARTIST",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 8
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
-    "09-song": {
+    "song": {
       "COLUMN_NAME": "SONG",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 9
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
-    "10-show_id": {
+    "show_id": {
       "COLUMN_NAME": "SHOW_ID",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 10
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "11-dw_create_date": {
-      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
-      "COLUMN_NAME": "DW_CREATE_DATE",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "TIMESTAMP_TZ",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 11
-    },
-    "12-dw_create_user": {
-      "COLUMN_DEFAULT": "CURRENT_USER()",
-      "COLUMN_NAME": "DW_CREATE_USER",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 12
-    },
-    "13-dw_update_date": {
-      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
-      "COLUMN_NAME": "DW_UPDATE_DATE",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "TIMESTAMP_TZ",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 13
-    },
-    "14-dw_update_user": {
-      "COLUMN_DEFAULT": "CURRENT_USER()",
-      "COLUMN_NAME": "DW_UPDATE_USER",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 14
-    },
-    "15-comment": {
+    "comment": {
       "COLUMN_NAME": "COMMENT",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 15
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
-    "16-image_uri": {
+    "image_uri": {
       "COLUMN_NAME": "IMAGE_URI",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 16
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
-    "17-labels": {
+    "labels": {
       "COLUMN_NAME": "LABELS",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "VARIANT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 17
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
-    "18-release_date": {
+    "release_date": {
       "COLUMN_NAME": "RELEASE_DATE",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 18
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+    "landing_zone_create_date": {
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "COLUMN_NAME": "LANDING_ZONE_CREATE_DATE",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TIMESTAMP_TZ",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_create_user": {
+      "COLUMN_DEFAULT": "CURRENT_USER()",
+      "COLUMN_NAME": "LANDING_ZONE_CREATE_USER",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_update_date": {
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "COLUMN_NAME": "LANDING_ZONE_UPDATE_DATE",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TIMESTAMP_TZ",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_update_user": {
+      "COLUMN_DEFAULT": "CURRENT_USER()",
+      "COLUMN_NAME": "LANDING_ZONE_UPDATE_USER",
+      "COMMENT": "Add a comment here.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_hidden": {
+      "COLUMN_DEFAULT": "FALSE",
+      "COLUMN_NAME": "landing_zone_hidden",
+      "DATA_TYPE": "BOOLEAN",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_filename": {
+      "COLUMN_DEFAULT": "metadata$filename",
+      "COLUMN_NAME": "landing_zone_filename",
+      "DATA_TYPE": "TEXT",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_file_row_number": {
+      "COLUMN_DEFAULT": "metadata$file_row_number",
+      "COLUMN_NAME": "landing_zone_file_row_number",
+      "DATA_TYPE": "NUMBER",
+      "IS_NULLABLE": false
     }
   }
 }
