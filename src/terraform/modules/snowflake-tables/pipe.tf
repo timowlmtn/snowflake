@@ -24,8 +24,6 @@ EOT
 
 }
 
-
-
 resource "snowflake_pipe" "pipe" {
   database = var.snowflake_database
   schema   = var.landing_zone_schema

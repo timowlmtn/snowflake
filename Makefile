@@ -68,8 +68,6 @@ plan-snowflake-db:
 init-snowflake-db:
 	terraform -chdir=src/terraform/layers/snowflake-db init
 
-
-
 # -------------------------------------------------------------------------------------------------
 # The Snowflake Pipe Layer creates that basic integration including the STORAGE_INTEGRATION object
 # and the PIPE integration, as well as all the AWS IAM roles and policies to ensure security with

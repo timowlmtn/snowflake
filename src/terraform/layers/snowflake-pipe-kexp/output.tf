@@ -20,7 +20,6 @@
 #}
 
 
-
 output "domain_playlist" {
   description = "The defined local model"
   value = local.playlist_copy
