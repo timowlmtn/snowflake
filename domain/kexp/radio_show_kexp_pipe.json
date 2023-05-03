@@ -7,90 +7,67 @@
   "s3_url": "s3://owlmtn-datalake-&ENVIRONMENT/stage/kexp/shows/",
 
   "properties": {
-    "load_id": {
-      "COLUMN_NAME": "LOAD_ID",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "YES",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 1
+    "import_show_key": {
+      "COLUMN_NAME": "IMPORT_SHOW_KEY",
+      "COMMENT": "A unique key for each show record.",
+      "DATA_TYPE": "INTEGER",
+      "IS_IDENTITY": true,
+      "IS_NULLABLE": false
     },
-    "filename": {
-      "COLUMN_NAME": "FILENAME",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 2
-    },
-    "file_row_number": {
-      "COLUMN_NAME": "FILE_ROW_NUMBER",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 3
-    },
-    "show_id": {
+    "id": {
       "COLUMN_NAME": "SHOW_ID",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A unique ID for the show instance.",
       "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 4
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "program_id": {
+    "program": {
       "COLUMN_NAME": "PROGRAM_ID",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A unique ID for the program instance.",
       "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 5
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
     "program_name": {
       "COLUMN_NAME": "PROGRAM_NAME",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "The name of the program.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 6
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
     "program_tags": {
       "COLUMN_NAME": "PROGRAM_TAGS",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "An array of tags for the show.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 7
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
     "host_names": {
       "COLUMN_NAME": "HOST_NAMES",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "An array of the hosts of the show.",
       "DATA_TYPE": "VARIANT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 8
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
     "tagline": {
       "COLUMN_NAME": "TAGLINE",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A string tagline for the show.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 9
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
     },
     "start_time": {
       "COLUMN_NAME": "START_TIME",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "The time when the show started (PST).",
       "DATA_TYPE": "TIMESTAMP_LTZ",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true,
       "ORDINAL_POSITION": 10
     },
     "landing_zone_create_date": {
       "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
       "COLUMN_NAME": "LANDING_ZONE_CREATE_DATE",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A timestamp for when the data was loaded into the table.",
       "DATA_TYPE": "TIMESTAMP_TZ",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
@@ -98,7 +75,7 @@
     "landing_zone_create_user": {
       "COLUMN_DEFAULT": "CURRENT_USER()",
       "COLUMN_NAME": "LANDING_ZONE_CREATE_USER",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "The user performing the load.",
       "DATA_TYPE": "TEXT",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
@@ -106,7 +83,7 @@
     "landing_zone_update_date": {
       "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
       "COLUMN_NAME": "LANDING_ZONE_UPDATE_DATE",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A date when the table data was updated.",
       "DATA_TYPE": "TIMESTAMP_TZ",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
@@ -114,7 +91,7 @@
     "landing_zone_update_user": {
       "COLUMN_DEFAULT": "CURRENT_USER()",
       "COLUMN_NAME": "LANDING_ZONE_UPDATE_USER",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "The user updating the data.",
       "DATA_TYPE": "TEXT",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
@@ -122,19 +99,29 @@
     "landing_zone_hidden": {
       "COLUMN_DEFAULT": "FALSE",
       "COLUMN_NAME": "landing_zone_hidden",
+      "COMMENT": "A boolean flag to indicate whether or not to hide the data.",
       "DATA_TYPE": "BOOLEAN",
       "IS_NULLABLE": false
     },
     "landing_zone_filename": {
-      "COLUMN_DEFAULT": "metadata$filename",
+      "DEFAULT": "metadata$filename",
       "COLUMN_NAME": "landing_zone_filename",
+      "COMMENT": "The filename on the datalake where the data is from.",
       "DATA_TYPE": "TEXT",
       "IS_NULLABLE": false
     },
     "landing_zone_file_row_number": {
-      "COLUMN_DEFAULT": "metadata$file_row_number",
+      "DEFAULT": "metadata$file_row_number",
       "COLUMN_NAME": "landing_zone_file_row_number",
+      "COMMENT": "The row number in the filename where the data is from.",
       "DATA_TYPE": "NUMBER",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_raw": {
+      "DEFAULT": "$1",
+      "COLUMN_NAME": "landing_zone_raw",
+      "COMMENT": "The raw data associated with the row.",
+      "DATA_TYPE": "VARIANT",
       "IS_NULLABLE": false
     }
   }

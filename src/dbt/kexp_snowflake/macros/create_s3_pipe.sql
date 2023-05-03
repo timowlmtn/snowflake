@@ -18,7 +18,14 @@ url = "{{ s3_url }}";
 
 create table if not exists {{ schema_name }}.{{ table_name }} (
    {%- for col, column_mapping in properties.items() %}
-   {{ col }} {{ column_mapping['DATA_TYPE'] }}{% if not loop.last %},{% endif %}
+   {{ col }}
+        {{ column_mapping['DATA_TYPE'] }}
+        {% if column_mapping['IS_IDENTITY'] %}PRIMARY KEY AUTOINCREMENT{% endif %}
+        {% if not column_mapping['IS_NULLABLE'] %}not null{% endif %}
+        {% if column_mapping['COLUMN_DEFAULT'] %}DEFAULT {{ column_mapping['COLUMN_DEFAULT'] }}{% endif %}
+        {% if column_mapping['COMMENT'] %}COMMENT '{{ column_mapping['COMMENT'] }}'{% endif %}
+
+        {% if not loop.last %},{% endif %}
    {%- endfor %}
  );
 
@@ -28,13 +35,18 @@ create pipe if not exists {{ schema_name }}.PIPE_{{ table_name }}
 as
     copy into {{ schema_name }}.{{ table_name }}(
         {%- for col, column_mapping in properties.items() %}
-            {{ col }}{% if not loop.last %},{% endif %}
+            {% if not column_mapping['IS_IDENTITY'] %}
+                {{ col }}
+                {% if not loop.last %},{% endif %}
+            {% endif %}
         {%- endfor %}
         )
     from (
         select {%- for col, column_mapping in properties.items() %}
-            {% if column_mapping['DEFAULT'] is defined %}{{ column_mapping['DEFAULT'] }} {{ col }}
-            {% else %}$1:{{ col }}::{{ column_mapping['DATA_TYPE'] }} {{ col }}{% endif %}{% if not loop.last %},{% endif %}
+            {% if not column_mapping['IS_IDENTITY'] %}
+                {% if column_mapping['DEFAULT'] is defined %}{{ column_mapping['DEFAULT'] }} {{ col }}
+                {% else %}$1:{{ col }}::{{ column_mapping['DATA_TYPE'] }} {{ col }}{% endif %}{% if not loop.last %},{% endif %}
+            {% endif %}
         {%- endfor %}
         from @{{ schema_name }}.STAGE_{{ table_name }}
     )

@@ -1,46 +1,40 @@
 {
+  "schema_name": "LANDING_ZONE",
+
+  "table_name": "IMPORT_PLAYLIST",
+
+  "storage_integration": "&PREFIX_STORAGE_INTEGRATION_DATA_LAKE_&ENVIRONMENT",
+  "s3_url": "s3://owlmtn-datalake-&ENVIRONMENT/stage/kexp/playlists/",
+
+
   "properties": {
-    "load_id": {
-      "COLUMN_NAME": "LOAD_ID",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "NUMBER",
+    "import_playlist_key": {
+      "COLUMN_NAME": "IMPORT_PLAYLIST_KEY",
+      "COMMENT": "A automatic key for the plalist.",
+      "DATA_TYPE": "INTEGER",
       "IS_IDENTITY": true,
       "IS_NULLABLE": false
     },
-    "filename": {
-      "COLUMN_NAME": "FILENAME",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": false,
-      "IS_NULLABLE": false
-    },
-    "file_row_number": {
-      "COLUMN_NAME": "FILE_ROW_NUMBER",
-      "COMMENT": "Add a comment here.",
-      "DATA_TYPE": "NUMBER",
-      "IS_IDENTITY": false,
-      "IS_NULLABLE": false
-    },
-    "playlist_id": {
+    "id": {
       "COLUMN_NAME": "PLAYLIST_ID",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A unique ID for the playlist instance.",
       "DATA_TYPE": "NUMBER",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
     },
     "play_type": {
       "COLUMN_NAME": "PLAY_TYPE",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "The type of the play.",
       "DATA_TYPE": "TEXT",
       "IS_IDENTITY": false,
-      "IS_NULLABLE": false
+      "IS_NULLABLE": true
     },
     "airdate": {
       "COLUMN_NAME": "AIRDATE",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TIMESTAMP_LTZ",
       "IS_IDENTITY": false,
-      "IS_NULLABLE": false
+      "IS_NULLABLE": true
     },
     "album": {
       "COLUMN_NAME": "ALBUM",
@@ -63,7 +57,7 @@
       "IS_IDENTITY": false,
       "IS_NULLABLE": true
     },
-    "show_id": {
+    "show": {
       "COLUMN_NAME": "SHOW_ID",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
@@ -98,54 +92,69 @@
       "IS_IDENTITY": false,
       "IS_NULLABLE": true
     },
-    "landing_zone_create_date": {
+     "landing_zone_create_date": {
       "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "DEFAULT": "CURRENT_TIMESTAMP()",
       "COLUMN_NAME": "LANDING_ZONE_CREATE_DATE",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A timestamp for when the data was loaded into the table.",
       "DATA_TYPE": "TIMESTAMP_TZ",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
     },
     "landing_zone_create_user": {
       "COLUMN_DEFAULT": "CURRENT_USER()",
+      "DEFAULT": "CURRENT_USER()",
       "COLUMN_NAME": "LANDING_ZONE_CREATE_USER",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "The user performing the load.",
       "DATA_TYPE": "TEXT",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
     },
     "landing_zone_update_date": {
       "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "DEFAULT": "CURRENT_TIMESTAMP()",
       "COLUMN_NAME": "LANDING_ZONE_UPDATE_DATE",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "A date when the table data was updated.",
       "DATA_TYPE": "TIMESTAMP_TZ",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
     },
     "landing_zone_update_user": {
       "COLUMN_DEFAULT": "CURRENT_USER()",
+      "DEFAULT": "CURRENT_USER()",
       "COLUMN_NAME": "LANDING_ZONE_UPDATE_USER",
-      "COMMENT": "Add a comment here.",
+      "COMMENT": "The user updating the data.",
       "DATA_TYPE": "TEXT",
       "IS_IDENTITY": false,
       "IS_NULLABLE": false
     },
     "landing_zone_hidden": {
       "COLUMN_DEFAULT": "FALSE",
+      "DEFAULT": "FALSE",
       "COLUMN_NAME": "landing_zone_hidden",
+      "COMMENT": "A boolean flag to indicate whether or not to hide the data.",
       "DATA_TYPE": "BOOLEAN",
       "IS_NULLABLE": false
     },
     "landing_zone_filename": {
-      "COLUMN_DEFAULT": "metadata$filename",
+      "DEFAULT": "metadata$filename",
       "COLUMN_NAME": "landing_zone_filename",
+      "COMMENT": "The filename on the datalake where the data is from.",
       "DATA_TYPE": "TEXT",
       "IS_NULLABLE": false
     },
     "landing_zone_file_row_number": {
-      "COLUMN_DEFAULT": "metadata$file_row_number",
+      "DEFAULT": "metadata$file_row_number",
       "COLUMN_NAME": "landing_zone_file_row_number",
+      "COMMENT": "The row number in the filename where the data is from.",
       "DATA_TYPE": "NUMBER",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_raw": {
+      "DEFAULT": "$1",
+      "COLUMN_NAME": "landing_zone_raw",
+      "COMMENT": "The raw data associated with the row.",
+      "DATA_TYPE": "VARIANT",
       "IS_NULLABLE": false
     }
   }

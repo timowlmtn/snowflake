@@ -1,3 +1,5 @@
+refresh: destroy-show create-show destroy-playlist create-playlist
+
 create-show:
 	dbt run-operation create_s3_pipe \
 		--args '${shell cat ../../../domain/kexp/radio_show_kexp_pipe.json | sed "s/&ENVIRONMENT/${ENVIRONMENT}/g;s/&PREFIX/${PREFIX}/g" }'
