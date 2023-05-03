@@ -63,9 +63,3 @@ variable "snowflake_error_sns_arn" {
   type        = string
   default     = null
 }
-
-variable "domain_model" {
-  description = "The mapping description of the domain model containing the column definitions"
-  type  = map(map(map(string)))
-  default = {}
-}
