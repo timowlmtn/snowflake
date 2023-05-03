@@ -6,3 +6,5 @@
 Create an alias for the Terraform directory
 
     source setenv.sh
+    ENVIRONMENT=prod make build-clone
+

@@ -9,12 +9,11 @@ build-clone:
 	git clone https://github.com/timowlmtn/snowflake.git build/${ENVIRONMENT}
 
 build-pull:
-	git -C build/demo pull https://github.com/timowlmtn/snowflake.git
+	git -C build/${ENVIRONMENT} pull https://github.com/timowlmtn/snowflake.git
 
 build-datalake: init-datalake apply-datalake
 build-snowflake-db: init-snowflake-db apply-snowflake-db
 build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
-build-snowflake-pipe-kexp: init-snowflake-pipe-kexp apply-snowflake-pipe-kexp
 
 destroy-all: destroy-datalake destroy-snowflake-db
 

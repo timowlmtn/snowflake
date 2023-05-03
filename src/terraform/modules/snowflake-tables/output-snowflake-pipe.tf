@@ -3,8 +3,7 @@ output "datalake_stage" {
   value = snowflake_stage.datalake.name
 }
 
-
-#output "notification_channel" {
-#  description = "THe notification channel in AWS the pipe will use"
-#  value = snowflake_pipe.pipe.notification_channel
-#}
+output "notification_channel" {
+  description = "THe notification channel in AWS the pipe will use"
+  value = snowflake_pipe.pipe.notification_channel
+}
