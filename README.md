@@ -3,8 +3,11 @@
 
 ##  Create a new environment
 
-Create an alias for the Terraform directory
+Create a build folder based on the current code state.
+
+    make pull-qa
+
+Source the setenv and build the system
 
     source setenv.sh
-    ENVIRONMENT=prod make build-clone
-
+    make-qa all

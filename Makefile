@@ -1,24 +1,26 @@
-default: apply-snowflake-pipe-kexp
+default: build-all
 
-# To run from the build, use the following
+# Each environment needs to have a specific location because Terraform
+# will store state.  Only dev has the default folder as its source
 #
-#  make --directory=build/demo snowflake-pipe
-#
-build-clone:
-	mkdir -p build/${ENVIRONMENT}
-	git clone https://github.com/timowlmtn/snowflake.git build/${ENVIRONMENT}
-
-build-pull-prod:
+pull-prod:
+	mkdir -p build/prod
 	git -C build/prod pull https://github.com/timowlmtn/snowflake.git
 
-build-pull-demo:
+pull-demo:
+	mkdir -p build/demo
 	git -C build/demo pull https://github.com/timowlmtn/snowflake.git
+
+pull-qa:
+	mkdir -p build/qa
+	git -C build/qa pull https://github.com/timowlmtn/snowflake.git
 
 build-datalake: init-datalake apply-datalake
 build-snowflake-db: init-snowflake-db apply-snowflake-db
 build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
 
-destroy-all: destroy-datalake destroy-snowflake-db
+build-all: build-datalake build-snowflake-db build-snowflake-pipe
+destroy-all: destroy-snowflake-pipe destroy-snowflake-db destroy-datalake
 
 # -------------------------------------------------------------------------------------------------
 # The Data Lake is the base layer S3 bucket and we create as a separate layer that has no

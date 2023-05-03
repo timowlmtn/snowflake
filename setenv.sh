@@ -8,4 +8,7 @@ export SOURCE=kexp
 
 alias "make-demo"="make ENVIRONMENT=demo --directory=build/demo"
 
+alias "make-qa"="make ENVIRONMENT=qa --directory=build/qa"
+
 alias "make-prod"="make ENVIRONMENT=prod --directory=build/prod"
+
