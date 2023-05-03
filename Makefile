@@ -14,9 +14,9 @@ build-pull-prod:
 build-pull-demo:
 	git -C build/demo pull https://github.com/timowlmtn/snowflake.git
 
-build-datalake: build-pull init-datalake apply-datalake
-build-snowflake-db: build-pull init-snowflake-db apply-snowflake-db
-build-snowflake-pipe: build-pull init-snowflake-pipe apply-snowflake-pipe
+build-datalake: init-datalake apply-datalake
+build-snowflake-db: init-snowflake-db apply-snowflake-db
+build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
 
 destroy-all: destroy-datalake destroy-snowflake-db
 
