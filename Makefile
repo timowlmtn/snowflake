@@ -3,17 +3,13 @@ default: build-all
 # Each environment needs to have a specific location because Terraform
 # will store state.  Only dev has the default folder as its source
 #
-pull-prod:
-	mkdir -p build/prod
-	git -C build/prod pull https://github.com/timowlmtn/snowflake.git
 
-pull-demo:
-	mkdir -p build/demo
-	git -C build/demo pull https://github.com/timowlmtn/snowflake.git
+build-init:
+	mkdir -p build/${BUILD_ENV}
+	git clone https://github.com/timowlmtn/snowflake.git build/${BUILD_ENV}
 
-pull-qa:
-	mkdir -p build/qa
-	git -C build/qa pull https://github.com/timowlmtn/snowflake.git
+build-pull:
+	git -C build/${BUILD_ENV} pull https://github.com/timowlmtn/snowflake.git
 
 build-datalake: init-datalake apply-datalake
 build-snowflake-db: init-snowflake-db apply-snowflake-db

@@ -5,9 +5,13 @@
 
 Create a build folder based on the current code state.
 
-    make pull-qa
+    BUILD_ENV=qa make build-init
 
-Source the setenv and build the system
+Pull the latest changes the setenv 
 
     source setenv.sh
-    make-qa all
+    ENVIRONMENT=qa make build-pull
+
+The build-all target will build the Snowflake database, data pipelines and integrations.
+
+    make-qa build-all
