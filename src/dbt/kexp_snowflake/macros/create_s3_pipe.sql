@@ -18,7 +18,7 @@ url = "{{ s3_url }}";
 
 create table if not exists {{ schema_name }}.{{ table_name }} (
    {%- for col, column_mapping in properties.items() %}
-   {{ col }}
+   {{ column_mapping['COLUMN_NAME'] }}
         {{ column_mapping['DATA_TYPE'] }}
         {% if column_mapping['IS_IDENTITY'] %}PRIMARY KEY AUTOINCREMENT{% endif %}
         {% if not column_mapping['IS_NULLABLE'] %}not null{% endif %}
@@ -36,7 +36,7 @@ as
     copy into {{ schema_name }}.{{ table_name }}(
         {%- for col, column_mapping in properties.items() %}
             {% if not column_mapping['IS_IDENTITY'] %}
-                {{ col }}
+                {{ column_mapping['COLUMN_NAME'] }}
                 {% if not loop.last %},{% endif %}
             {% endif %}
         {%- endfor %}
