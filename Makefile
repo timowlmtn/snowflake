@@ -8,7 +8,7 @@ build-clone:
 	mkdir -p build/${ENVIRONMENT}
 	git clone https://github.com/timowlmtn/snowflake.git build/${ENVIRONMENT}
 
-build-pull-demo:
+build-pull:
 	git -C build/demo pull https://github.com/timowlmtn/snowflake.git
 
 build-datalake: init-datalake apply-datalake
