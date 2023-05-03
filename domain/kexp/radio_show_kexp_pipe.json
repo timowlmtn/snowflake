@@ -1,6 +1,13 @@
 {
+  "schema_name": "LANDING_ZONE",
+
+  "table_name": "IMPORT_SHOW",
+
+  "storage_integration": "&PREFIX_STORAGE_INTEGRATION_DATA_LAKE_&ENVIRONMENT",
+  "s3_url": "s3://owlmtn-datalake-&ENVIRONMENT/stage/kexp/shows/",
+
   "properties": {
-    "01-load_id": {
+    "load_id": {
       "COLUMN_NAME": "LOAD_ID",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
@@ -8,7 +15,7 @@
       "IS_NULLABLE": "NO",
       "ORDINAL_POSITION": 1
     },
-    "02-filename": {
+    "filename": {
       "COLUMN_NAME": "FILENAME",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
@@ -16,7 +23,7 @@
       "IS_NULLABLE": "NO",
       "ORDINAL_POSITION": 2
     },
-    "03-file_row_number": {
+    "file_row_number": {
       "COLUMN_NAME": "FILE_ROW_NUMBER",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
@@ -24,7 +31,7 @@
       "IS_NULLABLE": "NO",
       "ORDINAL_POSITION": 3
     },
-    "04-show_id": {
+    "show_id": {
       "COLUMN_NAME": "SHOW_ID",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
@@ -32,7 +39,7 @@
       "IS_NULLABLE": "YES",
       "ORDINAL_POSITION": 4
     },
-    "05-program_id": {
+    "program_id": {
       "COLUMN_NAME": "PROGRAM_ID",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
@@ -40,7 +47,7 @@
       "IS_NULLABLE": "YES",
       "ORDINAL_POSITION": 5
     },
-    "06-program_name": {
+    "program_name": {
       "COLUMN_NAME": "PROGRAM_NAME",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
@@ -48,7 +55,7 @@
       "IS_NULLABLE": "YES",
       "ORDINAL_POSITION": 6
     },
-    "07-program_tags": {
+    "program_tags": {
       "COLUMN_NAME": "PROGRAM_TAGS",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
@@ -56,7 +63,7 @@
       "IS_NULLABLE": "YES",
       "ORDINAL_POSITION": 7
     },
-    "08-host_names": {
+    "host_names": {
       "COLUMN_NAME": "HOST_NAMES",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "VARIANT",
@@ -64,7 +71,7 @@
       "IS_NULLABLE": "YES",
       "ORDINAL_POSITION": 8
     },
-    "09-tagline": {
+    "tagline": {
       "COLUMN_NAME": "TAGLINE",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
@@ -72,7 +79,7 @@
       "IS_NULLABLE": "YES",
       "ORDINAL_POSITION": 9
     },
-    "10-start_time": {
+    "start_time": {
       "COLUMN_NAME": "START_TIME",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TIMESTAMP_LTZ",
@@ -80,41 +87,55 @@
       "IS_NULLABLE": "YES",
       "ORDINAL_POSITION": 10
     },
-    "11-dw_create_date": {
+    "landing_zone_create_date": {
       "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
-      "COLUMN_NAME": "DW_CREATE_DATE",
+      "COLUMN_NAME": "LANDING_ZONE_CREATE_DATE",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TIMESTAMP_TZ",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 11
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "12-dw_create_user": {
+    "landing_zone_create_user": {
       "COLUMN_DEFAULT": "CURRENT_USER()",
-      "COLUMN_NAME": "DW_CREATE_USER",
+      "COLUMN_NAME": "LANDING_ZONE_CREATE_USER",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 12
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "13-dw_update_date": {
+    "landing_zone_update_date": {
       "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
-      "COLUMN_NAME": "DW_UPDATE_DATE",
+      "COLUMN_NAME": "LANDING_ZONE_UPDATE_DATE",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TIMESTAMP_TZ",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "YES",
-      "ORDINAL_POSITION": 13
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
     },
-    "14-dw_update_user": {
+    "landing_zone_update_user": {
       "COLUMN_DEFAULT": "CURRENT_USER()",
-      "COLUMN_NAME": "DW_UPDATE_USER",
+      "COLUMN_NAME": "LANDING_ZONE_UPDATE_USER",
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "TEXT",
-      "IS_IDENTITY": "NO",
-      "IS_NULLABLE": "NO",
-      "ORDINAL_POSITION": 14
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_hidden": {
+      "COLUMN_DEFAULT": "FALSE",
+      "COLUMN_NAME": "landing_zone_hidden",
+      "DATA_TYPE": "BOOLEAN",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_filename": {
+      "COLUMN_DEFAULT": "metadata$filename",
+      "COLUMN_NAME": "landing_zone_filename",
+      "DATA_TYPE": "TEXT",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_file_row_number": {
+      "COLUMN_DEFAULT": "metadata$file_row_number",
+      "COLUMN_NAME": "landing_zone_file_row_number",
+      "DATA_TYPE": "NUMBER",
+      "IS_NULLABLE": false
     }
   }
 }

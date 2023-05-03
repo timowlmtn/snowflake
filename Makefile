@@ -105,9 +105,11 @@ destroy-snowflake-pipe-kexp:
 	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp destroy -var="aws_account_id=${AWS_ACCOUNT_ID}" \
 		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
-
 # -------------------------------------------------------------------------------------------------
 # This is the brew method of installing Terraform for this example
 #
-install:
+install-terraform:
 	brew install hashicorp/tap/terraform
+
+install-dbt:
+	pip install -r requirements.txt
