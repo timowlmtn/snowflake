@@ -8,11 +8,11 @@ clean: destroy-all
 #
 
 build-init:
-	mkdir -p build/${BUILD_ENV}
-	git clone https://github.com/timowlmtn/snowflake.git build/${BUILD_ENV}
+	mkdir -p ${BUILD_HOME}/build/${BUILD_ENV}
+	git clone https://github.com/timowlmtn/snowflake.git ${BUILD_HOME}/build/${BUILD_ENV}
 
 build-pull:
-	git -C build/${BUILD_ENV} pull https://github.com/timowlmtn/snowflake.git
+	git -C ${BUILD_HOME}/build/${BUILD_ENV} pull https://github.com/timowlmtn/snowflake.git
 
 build-datalake: init-datalake apply-datalake
 build-snowflake-db: init-snowflake-db apply-snowflake-db
