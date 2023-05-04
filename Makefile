@@ -1,5 +1,8 @@
 default: build-all
 
+# Clean will delete everything:
+clean: destroy-all
+
 # Each environment needs to have a specific location because Terraform
 # will store state.  Only dev has the default folder as its source
 #

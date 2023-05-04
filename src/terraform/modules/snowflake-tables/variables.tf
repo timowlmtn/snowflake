@@ -58,8 +58,8 @@ variable "snowflake_data_sns_arn" {
   default     = null
 }
 
-variable "snowflake_error_sns_arn" {
-  description = "The AWS SNS Queue for notifications when there are errors loading data into Snowflake"
+variable "snowflake_error_integration" {
+  description = "The Snowflake Integration containing the notification specification"
   type        = string
   default     = null
 }

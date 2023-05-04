@@ -13,7 +13,8 @@ EOT
 
   auto_ingest    = true
 
-  aws_sns_topic_arn    = var.snowflake_data_sns_arn
-  error_integration    = var.snowflake_error_sns_arn
+
+  #  aws_sns_topic_arn    = var.snowflake_data_sns_arn
+  error_integration    = var.snowflake_error_integration
 
 }
