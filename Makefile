@@ -19,7 +19,7 @@ build-snowflake-db: init-snowflake-db apply-snowflake-db
 build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
 
 build-all: build-datalake build-snowflake-db build-snowflake-pipe
-destroy-all: destroy-snowflake-pipe destroy-snowflake-db destroy-datalake
+destroy-all: destroy-datalake destroy-snowflake-db  destroy-snowflake-pipe
 
 # -------------------------------------------------------------------------------------------------
 # The Data Lake is the base layer S3 bucket and we create as a separate layer that has no
@@ -91,7 +91,7 @@ init-snowflake-pipe:
 	terraform -chdir=src/terraform/layers/snowflake-pipe init -upgrade
 
 sync-test-data:
-	aws s3 sync data/logs s3://${PREFIX}-datalake-${ENVIRONMENT}/stage/${SOURCE}/logs/ --exclude="*" --include="*.json"
+	aws s3 sync data/logs s3://${PREFIX}-datalake-${BUILD_ENV}/stage/${SOURCE}/logs/ --exclude="*" --include="*.json"
 
 # -------------------------------------------------------------------------------------------------
 # This is the brew method of installing Terraform for this example
