@@ -6,7 +6,7 @@ copy into LANDING_ZONE.IMPORT_SHOW (SHOW_ID, PROGRAM_ID, PROGRAM_NAME, PROGRAM_T
                                     LANDING_ZONE_UPDATE_USER, landing_zone_hidden, landing_zone_filename,
                                     landing_zone_file_row_number, landing_zone_raw
     )
-    from ( select$1:id::NUMBER id,$1:program::NUMBER program,$1:program_name::TEXT program_name,$1:program_tags::TEXT program_tags,$1:host_names::VARIANT host_names,$1:tagline::TEXT tagline,$1: start_time::TIMESTAMP_LTZ start_time, CURRENT_TIMESTAMP () landing_zone_create_date
+    from ( select $1:id::NUMBER id,$1:program::NUMBER program,$1:program_name::TEXT program_name,$1:program_tags::TEXT program_tags,$1:host_names::VARIANT host_names,$1:tagline::TEXT tagline,$1: start_time::TIMESTAMP_LTZ start_time, CURRENT_TIMESTAMP () landing_zone_create_date
         , CURRENT_USER () landing_zone_create_user
         , CURRENT_TIMESTAMP () landing_zone_update_date
         , CURRENT_USER () landing_zone_update_user
@@ -24,7 +24,7 @@ copy into LANDING_ZONE.IMPORT_PLAYLIST (PLAYLIST_ID, PLAY_TYPE, AIRDATE, ALBUM, 
                                         landing_zone_hidden, landing_zone_filename, landing_zone_file_row_number,
                                         landing_zone_raw
     )
-    from ( select$1:id::NUMBER id,$1:play_type::TEXT play_type,$1:airdate::TIMESTAMP_LTZ airdate,$1:album::TEXT album,$1:artist::TEXT artist,$1:song::TEXT song,$1: show::NUMBER show,$1: comment::TEXT comment,$1:image_uri::TEXT image_uri,$1:labels::VARIANT labels,$1:release_date::TEXT release_date, CURRENT_TIMESTAMP () landing_zone_create_date
+    from ( select $1:id::NUMBER id,$1:play_type::TEXT play_type,$1:airdate::TIMESTAMP_LTZ airdate,$1:album::TEXT album,$1:artist::TEXT artist,$1:song::TEXT song,$1: show::NUMBER show,$1: comment::TEXT comment,$1:image_uri::TEXT image_uri,$1:labels::VARIANT labels,$1:release_date::TEXT release_date, CURRENT_TIMESTAMP () landing_zone_create_date
         , CURRENT_USER () landing_zone_create_user
         , CURRENT_TIMESTAMP () landing_zone_update_date
         , CURRENT_USER () landing_zone_update_user

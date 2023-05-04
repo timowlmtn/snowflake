@@ -19,7 +19,7 @@ build-snowflake-db: init-snowflake-db apply-snowflake-db
 build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
 
 build-all: build-datalake build-snowflake-db build-snowflake-pipe
-destroy-all: destroy-datalake destroy-snowflake-db  destroy-snowflake-pipe
+destroy-all: destroy-datalake destroy-snowflake-db
 
 # -------------------------------------------------------------------------------------------------
 # The Data Lake is the base layer S3 bucket and we create as a separate layer that has no
