@@ -20,7 +20,7 @@
       "COMMENT": "A unique ID for the playlist instance.",
       "DATA_TYPE": "NUMBER",
       "IS_IDENTITY": false,
-      "IS_NULLABLE": false
+      "IS_NULLABLE": true
     },
     "play_type": {
       "COLUMN_NAME": "PLAY_TYPE",
@@ -62,7 +62,7 @@
       "COMMENT": "Add a comment here.",
       "DATA_TYPE": "NUMBER",
       "IS_IDENTITY": false,
-      "IS_NULLABLE": false
+      "IS_NULLABLE": true
     },
     "comment": {
       "COLUMN_NAME": "COMMENT",

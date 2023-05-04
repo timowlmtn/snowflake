@@ -1,3 +1,6 @@
+apply: create-show create-playlist
+
+
 refresh: destroy-show create-show destroy-playlist create-playlist
 
 destroy: destroy-show destroy-playlist

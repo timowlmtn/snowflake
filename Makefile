@@ -87,23 +87,6 @@ plan-snowflake-pipe:
 init-snowflake-pipe:
 	terraform -chdir=src/terraform/layers/snowflake-pipe init -upgrade
 
-# -------------------------------------------------------------------------------------------------
-# Here is an example of a specific domain-level usage for managing auto-loading tables on Snowflake
-# via Terraform configuration and JSON schema definitions.
-#
-apply-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp apply -var="aws_account_id=${AWS_ACCOUNT_ID}" \
-		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
-
-plan-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp plan -var-file="../../../../environments/${ENVIRONMENT}.tfvars"
-
-init-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp init -upgrade
-
-destroy-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp destroy -var="aws_account_id=${AWS_ACCOUNT_ID}" \
-		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
 
 # -------------------------------------------------------------------------------------------------
 # This is the brew method of installing Terraform for this example

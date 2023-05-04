@@ -19,21 +19,21 @@
       "COMMENT": "A unique ID for the show instance.",
       "DATA_TYPE": "NUMBER",
       "IS_IDENTITY": false,
-      "IS_NULLABLE": false
+      "IS_NULLABLE": true
     },
     "program": {
       "COLUMN_NAME": "PROGRAM_ID",
       "COMMENT": "A unique ID for the program instance.",
       "DATA_TYPE": "NUMBER",
       "IS_IDENTITY": false,
-      "IS_NULLABLE": false
+      "IS_NULLABLE": true
     },
     "program_name": {
       "COLUMN_NAME": "PROGRAM_NAME",
       "COMMENT": "The name of the program.",
       "DATA_TYPE": "TEXT",
       "IS_IDENTITY": false,
-      "IS_NULLABLE": false
+      "IS_NULLABLE": true
     },
     "program_tags": {
       "COLUMN_NAME": "PROGRAM_TAGS",
