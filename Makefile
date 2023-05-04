@@ -93,6 +93,11 @@ init-snowflake-pipe:
 sync-test-data:
 	aws s3 sync data/logs s3://${PREFIX}-datalake-${BUILD_ENV}/stage/${SOURCE}/logs/ --exclude="*" --include="*.json"
 
+sync-real-data:
+	aws s3 sync s3://${PREFIX}-datalake-prod/stage/${SOURCE}/ s3://${PREFIX}-datalake-${BUILD_ENV}/stage/${SOURCE}/ \
+ 		--exclude="*" --include="*/202302*" # --dryrun
+
+
 # -------------------------------------------------------------------------------------------------
 # This is the brew method of installing Terraform for this example
 #
