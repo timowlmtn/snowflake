@@ -1,0 +1,7 @@
+{
+"timestamp": "2022-12-23T12:34:56Z",
+"level": "warning",
+"message": "Low memory warning",
+"free_memory": 456,
+"total_memory": 1024
+}

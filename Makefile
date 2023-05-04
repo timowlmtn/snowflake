@@ -90,6 +90,8 @@ plan-snowflake-pipe:
 init-snowflake-pipe:
 	terraform -chdir=src/terraform/layers/snowflake-pipe init -upgrade
 
+sync-test-data:
+	aws s3 sync data/logs s3://${PREFIX}-datalake-${ENVIRONMENT}/stage/${SOURCE}/logs/ --exclude="*" --include="*.json"
 
 # -------------------------------------------------------------------------------------------------
 # This is the brew method of installing Terraform for this example
