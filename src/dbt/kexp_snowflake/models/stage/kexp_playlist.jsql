@@ -1,0 +1,9 @@
+with source_playlist as (
+    select * from {{ source(kexp_radio, IMPORT_KEXP_PLAYLIST) }}
+)
+
+final as (
+    select * from source_playlist
+)
+
+select * from final

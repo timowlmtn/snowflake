@@ -14,3 +14,8 @@ output "storage_aws_external_id" {
   value       = snowflake_storage_integration.datalake_integration.storage_aws_external_id
 }
 
+output "integration_aws_external_id" {
+  description = "The ID value for Snowflake notification integration"
+  value = snowflake_notification_integration.integration.aws_sns_external_id
+}
+

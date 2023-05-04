@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: kexp_radio
+    description: "The KEXP Model Implementation in dbt"
+    database: "OWLMTN"
+    schema: "STAGE"
+    tables:
+      - name: IMPORT_KEXP_PLAYLIST
+        description: "The playlist data"
+      - name: IMPORT_KEXP_SHOW

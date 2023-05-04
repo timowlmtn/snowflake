@@ -1,0 +1,132 @@
+{
+  "schema_name": "LANDING_ZONE",
+
+  "table_name": "IMPORT_SHOW",
+
+  "storage_integration": "&PREFIX_STORAGE_INTEGRATION_DATA_LAKE_&ENVIRONMENT",
+  "s3_url": "s3://owlmtn-datalake-&ENVIRONMENT/stage/kexp/shows/",
+
+  "properties": {
+    "import_show_key": {
+      "COLUMN_NAME": "IMPORT_SHOW_KEY",
+      "COMMENT": "A unique key for each show record.",
+      "DATA_TYPE": "INTEGER",
+      "IS_IDENTITY": true,
+      "IS_NULLABLE": false
+    },
+    "id": {
+      "COLUMN_NAME": "SHOW_ID",
+      "COMMENT": "A unique ID for the show instance.",
+      "DATA_TYPE": "NUMBER",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+    "program": {
+      "COLUMN_NAME": "PROGRAM_ID",
+      "COMMENT": "A unique ID for the program instance.",
+      "DATA_TYPE": "NUMBER",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+    "program_name": {
+      "COLUMN_NAME": "PROGRAM_NAME",
+      "COMMENT": "The name of the program.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+    "program_tags": {
+      "COLUMN_NAME": "PROGRAM_TAGS",
+      "COMMENT": "An array of tags for the show.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+    "host_names": {
+      "COLUMN_NAME": "HOST_NAMES",
+      "COMMENT": "An array of the hosts of the show.",
+      "DATA_TYPE": "VARIANT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+    "tagline": {
+      "COLUMN_NAME": "TAGLINE",
+      "COMMENT": "A string tagline for the show.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+    "start_time": {
+      "COLUMN_NAME": "START_TIME",
+      "COMMENT": "The time when the show started (PST).",
+      "DATA_TYPE": "TIMESTAMP_LTZ",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": true
+    },
+     "landing_zone_create_date": {
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "DEFAULT": "CURRENT_TIMESTAMP()",
+      "COLUMN_NAME": "LANDING_ZONE_CREATE_DATE",
+      "COMMENT": "A timestamp for when the data was loaded into the table.",
+      "DATA_TYPE": "TIMESTAMP_TZ",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_create_user": {
+      "COLUMN_DEFAULT": "CURRENT_USER()",
+      "DEFAULT": "CURRENT_USER()",
+      "COLUMN_NAME": "LANDING_ZONE_CREATE_USER",
+      "COMMENT": "The user performing the load.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_update_date": {
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP()",
+      "DEFAULT": "CURRENT_TIMESTAMP()",
+      "COLUMN_NAME": "LANDING_ZONE_UPDATE_DATE",
+      "COMMENT": "A date when the table data was updated.",
+      "DATA_TYPE": "TIMESTAMP_TZ",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_update_user": {
+      "COLUMN_DEFAULT": "CURRENT_USER()",
+      "DEFAULT": "CURRENT_USER()",
+      "COLUMN_NAME": "LANDING_ZONE_UPDATE_USER",
+      "COMMENT": "The user updating the data.",
+      "DATA_TYPE": "TEXT",
+      "IS_IDENTITY": false,
+      "IS_NULLABLE": false
+    },
+    "landing_zone_hidden": {
+      "COLUMN_DEFAULT": "FALSE",
+      "DEFAULT": "FALSE",
+      "COLUMN_NAME": "landing_zone_hidden",
+      "COMMENT": "A boolean flag to indicate whether or not to hide the data.",
+      "DATA_TYPE": "BOOLEAN",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_filename": {
+      "DEFAULT": "metadata$filename",
+      "COLUMN_NAME": "landing_zone_filename",
+      "COMMENT": "The filename on the datalake where the data is from.",
+      "DATA_TYPE": "TEXT",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_file_row_number": {
+      "DEFAULT": "metadata$file_row_number",
+      "COLUMN_NAME": "landing_zone_file_row_number",
+      "COMMENT": "The row number in the filename where the data is from.",
+      "DATA_TYPE": "NUMBER",
+      "IS_NULLABLE": false
+    },
+    "landing_zone_raw": {
+      "DEFAULT": "$1",
+      "COLUMN_NAME": "landing_zone_raw",
+      "COMMENT": "The raw data associated with the row.",
+      "DATA_TYPE": "VARIANT",
+      "IS_NULLABLE": false
+    }
+  }
+}

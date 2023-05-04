@@ -1,22 +1,25 @@
-default: apply-snowflake-pipe-kexp
+default: build-all
 
-# To run from the build, use the following
-#
-#  make --directory=build/demo snowflake-pipe
-#
-build-clone:
-	mkdir -p build/${ENVIRONMENT}
-	git clone https://github.com/timowlmtn/snowflake.git build/${ENVIRONMENT}
+# Clean will delete everything:
+clean: destroy-all
 
-build-pull-demo:
-	git -C build/demo pull https://github.com/timowlmtn/snowflake.git
+# Each environment needs to have a specific location because Terraform
+# will store state.  Only dev has the default folder as its source
+#
+
+build-init:
+	mkdir -p build/${BUILD_ENV}
+	git clone https://github.com/timowlmtn/snowflake.git build/${BUILD_ENV}
+
+build-pull:
+	git -C build/${BUILD_ENV} pull https://github.com/timowlmtn/snowflake.git
 
 build-datalake: init-datalake apply-datalake
 build-snowflake-db: init-snowflake-db apply-snowflake-db
 build-snowflake-pipe: init-snowflake-pipe apply-snowflake-pipe
-build-snowflake-pipe-kexp: init-snowflake-pipe-kexp apply-snowflake-pipe-kexp
 
-destroy-all: destroy-datalake destroy-snowflake-db
+build-all: build-datalake build-snowflake-db build-snowflake-pipe
+destroy-all: destroy-snowflake-pipe destroy-snowflake-db destroy-datalake
 
 # -------------------------------------------------------------------------------------------------
 # The Data Lake is the base layer S3 bucket and we create as a separate layer that has no
@@ -68,8 +71,6 @@ plan-snowflake-db:
 init-snowflake-db:
 	terraform -chdir=src/terraform/layers/snowflake-db init
 
-
-
 # -------------------------------------------------------------------------------------------------
 # The Snowflake Pipe Layer creates that basic integration including the STORAGE_INTEGRATION object
 # and the PIPE integration, as well as all the AWS IAM roles and policies to ensure security with
@@ -89,27 +90,12 @@ plan-snowflake-pipe:
 init-snowflake-pipe:
 	terraform -chdir=src/terraform/layers/snowflake-pipe init -upgrade
 
-# -------------------------------------------------------------------------------------------------
-# Here is an example of a specific domain-level usage for managing auto-loading tables on Snowflake
-# via Terraform configuration and JSON schema definitions.
-#
-apply-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp apply -var="aws_account_id=${AWS_ACCOUNT_ID}" \
-		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
-
-plan-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp plan -var-file="../../../../environments/${ENVIRONMENT}.tfvars"
-
-init-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp init -upgrade
-
-destroy-snowflake-pipe-kexp:
-	terraform -chdir=src/terraform/layers/snowflake-pipe-kexp destroy -var="aws_account_id=${AWS_ACCOUNT_ID}" \
-		-var-file="../../../../environments/${ENVIRONMENT}.tfvars" -auto-approve
-
 
 # -------------------------------------------------------------------------------------------------
 # This is the brew method of installing Terraform for this example
 #
-install:
+install-terraform:
 	brew install hashicorp/tap/terraform
+
+install-dbt:
+	pip install -r requirements.txt

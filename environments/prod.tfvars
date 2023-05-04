@@ -1,6 +1,6 @@
-# Core TFVars file for DEMO
+# Core TFVars file for PROD
 region              = "us-east-1"
-environment         = "demo"
+environment         = "prod"
 domain              = "radio"
 prefix              = "owlmtn"
 data_source         = "kexp"
