@@ -61,15 +61,3 @@ variable "cluster_columns" {
   type = list(string)
   default= []
 }
-
-variable "snowflake_data_sns_arn" {
-  description = "The AWS SNS Queue for notifications when new data arrives in the bucket"
-  type        = string
-  default     = null
-}
-
-variable "snowflake_error_sns_arn" {
-  description = "The AWS SNS Queue for notifications when there are errors loading data into Snowflake"
-  type        = string
-  default     = null
-}
