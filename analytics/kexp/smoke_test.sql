@@ -1,5 +1,20 @@
+show stages;
+
+describe stage STAGE_IMPORT_SHOW;
+
+show pipes;
+
+describe pipe PIPE_IMPORT_SHOW;
+
+
+
+
+---
+
 select *
 from LANDING_ZONE.IMPORT_LOG;
+
+
 
 ----------------------------------------------------------- PIPE_IMPORT_SHOW
 
