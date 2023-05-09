@@ -1,2 +1,3 @@
 /build/
 /src/dbt/logs/
+/src/chatgpt/jupyter/.env
