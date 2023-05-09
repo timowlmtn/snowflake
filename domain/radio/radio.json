@@ -1,0 +1,56 @@
+{
+  "hosts": [
+    {
+      "id": "string",
+      "name": "string",
+      "bio": "string",
+      "social_media_links": [
+        {
+          "platform": "string",
+          "link": "string"
+        }
+      ]
+    }
+  ],
+  "programs": [
+    {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "hosts": [
+        {
+          "id": "string",
+          "name": "string"
+        }
+      ]
+    }
+  ],
+  "shows": [
+    {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "program_id": "string"
+    }
+  ],
+  "plays": [
+    {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "show_id": "string",
+      "song": "string",
+      "artist": "string",
+      "album": "string",
+      "airdate": "datetime"
+    }
+  ],
+  "timeslots": [
+    {
+      "id": "string",
+      "start_time": "datetime",
+      "end_time": "datetime",
+      "play_id": "string"
+    }
+  ]
+}
